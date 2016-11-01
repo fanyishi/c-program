@@ -1,0 +1,22 @@
+#include<stdio.h>
+#include<stdlib.h>
+#include<string.h>
+
+int comp1(const void*a,const void*b) //一维数组排序，升序
+{return *(int*)a-*(int*)b;}
+int comp2(const void*a,const void*b) //一维数组排序，降序
+{return *(int*)b-*(int*)a;}
+int comp3(const void*a,const void*b) //字符数组排序，升序
+{return *(char *)a - *(char *)b;}
+int comp4(const void*a,const void*b) //字符串排序，升序
+{return strcmp((char*)a,(char*)b);}
+
+int main(void)
+{
+	int i,a[5]={1,4,5,3,2};
+	char b[5][10]={"fan","yi","shi","wo","fbn"};
+	qsort(a,5,sizeof(a[0]),comp1);
+	qsort(b,5,sizeof(b[0]),comp4);
+	for(i=0;i<5;i++)
+	printf("%s ",b[i]);
+}
